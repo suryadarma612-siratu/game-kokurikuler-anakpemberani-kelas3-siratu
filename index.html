@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Petualangan Anak Pemberani dan Berintegritas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Tombol suara (selalu tampil) -->
+  <div class="sound-bar">
+    <button id="btnMusic" class="fab" title="Musik hidup/mati" aria-label="Musik">🎵</button>
+    <button id="btnSfx" class="fab" title="Efek suara hidup/mati" aria-label="Efek suara">🔔</button>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ===== LOGIN ===== -->
+  <section id="screen-login" class="screen active">
+    <div class="card center">
+      <canvas id="heroLogin" class="hero" width="360" height="220"></canvas>
+      <h1 class="title">Petualangan Anak<br>Pemberani dan Berintegritas</h1>
+      <p class="sub">Ayo masuk dulu! Tuliskan namamu dan kelasmu.</p>
+      <form id="loginForm" autocomplete="off">
+        <label for="inName">Nama Siswa</label>
+        <input id="inName" type="text" maxlength="30" placeholder="Contoh: Niko Pratama" required>
+        <label for="inClass">Kelas</label>
+        <input id="inClass" type="text" list="classList" maxlength="10" placeholder="Contoh: 3A" required>
+        <datalist id="classList"><option value="3A"><option value="3B"><option value="3C"><option value="3D"></datalist>
+        <button type="submit" class="btn big green">MASUK</button>
+      </form>
+      <p id="loginMsg" class="msg"></p>
+      <button id="btnLoginGuru" class="btn small ghost">👩‍🏫 Panel Guru</button>
+    </div>
+  </section>
+
+  <!-- ===== MENU UTAMA ===== -->
+  <section id="screen-menu" class="screen">
+    <div class="card center">
+      <canvas id="heroMenu" class="hero" width="360" height="220"></canvas>
+      <h1 class="title">Petualangan Anak<br>Pemberani dan Berintegritas</h1>
+      <p class="sub" id="menuHello"></p>
+      <div class="btn-col">
+        <button id="btnStart" class="btn big green">▶ MULAI PETUALANGAN</button>
+        <button id="btnHow" class="btn big blue">❓ PETUNJUK BERMAIN</button>
+        <button id="btnMateri" class="btn big orange">📖 MATERI PEMBELAJARAN</button>
+        <button id="btnScore" class="btn big purple">🏆 LIHAT NILAI</button>
+        <button id="btnLogout" class="btn small ghost">🔁 Ganti Pemain</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PILIH LEVEL ===== -->
+  <section id="screen-map" class="screen">
+    <div class="card wide">
+      <h2>Pilih Level</h2>
+      <p class="sub" id="mapInfo"></p>
+      <div id="levelGrid" class="level-grid"></div>
+      <button class="btn big ghost back">⬅ KEMBALI KE MENU</button>
+    </div>
+  </section>
+
+  <!-- ===== PETUNJUK ===== -->
+  <section id="screen-how" class="screen">
+    <div class="card wide">
+      <h2>Petunjuk Bermain</h2>
+      <ol class="how">
+        <li>🏃 Gerakkan Niko dengan tombol <b>◀ ▶</b> dan <b>LONCAT</b> di layar. Di komputer, pakai tombol panah (loncat: panah atas atau spasi).</li>
+        <li>📍 Berjalanlah ke kanan sampai cerita muncul.</li>
+        <li>📖 Baca cerita dan pertanyaannya dengan teliti.</li>
+        <li>✍️ <b>Tulis jawabanmu sendiri</b> di kotak jawaban: tulis apa yang kamu lakukan, alasannya, dan caranya yang aman dan sopan.</li>
+        <li>💡 Kalau bingung, tekan <b>PETUNJUK</b>.</li>
+        <li>📨 Tekan <b>KIRIM JAWABAN</b>. Kamu akan mendapat nilai dan bintang ⭐.</li>
+        <li>❤️ Kamu punya <b>3 nyawa</b> di setiap level. Jawaban yang nilainya di bawah 60 atau waktu yang habis akan mengurangi 1 nyawa.</li>
+        <li>⏱️ Setiap level ada batas waktunya. Ayo selesaikan sebelum waktu habis!</li>
+        <li>🔁 Boleh memperbaiki jawaban dengan <b>ULANGI JAWABAN</b> untuk mendapat bintang lebih banyak.</li>
+        <li>🔓 Nilai 60 ke atas akan membuka level berikutnya.</li>
+      </ol>
+      <p class="note">Catatan: nilai otomatis hanya membantu. Gurumu bisa meninjau jawabanmu dan mengubah nilainya.</p>
+      <button class="btn big ghost back">⬅ KEMBALI KE MENU</button>
+    </div>
+  </section>
+
+  <!-- ===== MATERI ===== -->
+  <section id="screen-materi" class="screen">
+    <div class="card wide">
+      <h2>Materi Pembelajaran</h2>
+      <div class="quote-list">
+        <p>🌟 Keberanian harus dibiasakan.</p>
+        <p>🌟 Keberanian muncul dari aktivitas sehari-hari.</p>
+        <p>🌟 Keberanian dapat dilatih dengan hal-hal sederhana.</p>
+        <p>🌟 Keberanian bukan untuk kesombongan.</p>
+        <p>🌟 Keberanian bukan untuk merugikan orang lain.</p>
+        <p>🌟 Keberanian ditunjukkan untuk meraih kemandirian dan rasa percaya diri.</p>
+      </div>
+      <h3>Sikap Anak Pemberani</h3>
+      <ul class="check">
+        <li>Berani mengatakan hal yang benar.</li>
+        <li>Berani bertanya ketika belum paham.</li>
+        <li>Berani mengakui kesalahan.</li>
+        <li>Berani membantu teman.</li>
+        <li>Berani menolak ajakan yang tidak aman.</li>
+        <li>Berani menyelesaikan masalah dengan damai.</li>
+        <li>Berani bertanggung jawab atas tindakan sendiri.</li>
+      </ul>
+      <button class="btn big ghost back">⬅ KEMBALI KE MENU</button>
+    </div>
+  </section>
+
+  <!-- ===== NILAI & PAPAN SKOR ===== -->
+  <section id="screen-score" class="screen">
+    <div class="card wide">
+      <h2>Nilaiku</h2>
+      <div id="myStats" class="stats"></div>
+      <div id="myLevels" class="mylevels"></div>
+      <h2>🏆 Papan Skor</h2>
+      <div class="filter-row">
+        <label for="scoreClass">Kelas:</label>
+        <select id="scoreClass"></select>
+      </div>
+      <div class="table-wrap">
+        <table id="board">
+          <thead><tr><th>#</th><th>Nama</th><th>Kelas</th><th>Skor</th><th>⭐</th><th>Level</th><th>Waktu</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="note">Papan skor ini tersimpan di perangkat (browser) yang dipakai bermain.</p>
+      <button class="btn big ghost back">⬅ KEMBALI KE MENU</button>
+    </div>
+  </section>
+
+  <!-- ===== PANEL GURU ===== -->
+  <section id="screen-teacher" class="screen">
+    <div class="card wide">
+      <h2>👩‍🏫 Panel Guru</h2>
+      <div id="teacherLock">
+        <p class="sub">Masukkan PIN guru.</p>
+        <input id="inPin" type="password" inputmode="numeric" maxlength="8" placeholder="PIN">
+        <button id="btnPin" class="btn green">Buka</button>
+        <p id="pinMsg" class="msg"></p>
+      </div>
+      <div id="teacherBody" class="hidden">
+        <div class="filter-row">
+          <label for="teacherClass">Kelas:</label>
+          <select id="teacherClass"></select>
+          <button id="btnCsv" class="btn small blue">⬇ Unduh CSV</button>
+        </div>
+        <div id="teacherList"></div>
+        <details class="pinbox">
+          <summary>Ganti PIN guru</summary>
+          <input id="inNewPin" type="password" inputmode="numeric" maxlength="8" placeholder="PIN baru (4-8 angka)">
+          <button id="btnNewPin" class="btn small green">Simpan PIN</button>
+        </details>
+      </div>
+      <button class="btn big ghost back">⬅ KEMBALI</button>
+    </div>
+  </section>
+
+  <!-- ===== GAME ===== -->
+  <section id="screen-game" class="screen">
+    <div class="hud">
+      <div class="hud-top">
+        <button id="btnGameMenu" class="btn tiny ghost">⬅ MENU</button>
+        <div id="hudLevel" class="hud-level"></div>
+        <div class="hud-stat" id="hudLives" title="Nyawa"></div>
+        <div class="hud-stat" id="hudTimer" title="Sisa waktu">⏱ 0:00</div>
+        <div class="hud-stat" id="hudStars" title="Total bintang">⭐ 0</div>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+    </div>
+
+    <div class="game-body">
+      <div class="stage">
+        <canvas id="gameCanvas" width="900" height="450"></canvas>
+        <div id="goHint" class="go-hint">Jalan ke kanan ➡</div>
+      </div>
+
+      <div id="panel" class="panel hidden">
+        <div class="panel-inner">
+          <div class="panel-tag" id="panelTag"></div>
+          <p id="storyText" class="story"></p>
+          <p id="questionText" class="question"></p>
+          <textarea id="answer" rows="4" maxlength="600" placeholder="Tulis jawabanmu di sini..."></textarea>
+          <div id="hintBox" class="hint-box hidden"></div>
+          <div id="answerMsg" class="msg"></div>
+          <div id="answerBtns" class="row">
+            <button id="btnHint" class="btn yellow">💡 PETUNJUK</button>
+            <button id="btnSubmit" class="btn green">📨 KIRIM JAWABAN</button>
+          </div>
+
+          <div id="feedback" class="feedback hidden">
+            <div id="fbStars" class="fb-stars"></div>
+            <div id="fbTitle" class="fb-title"></div>
+            <div id="fbScore" class="fb-score"></div>
+            <ul id="fbList" class="fb-list"></ul>
+            <div id="fbMoral" class="fb-moral"></div>
+            <div id="fbExample" class="fb-example"></div>
+            <div class="row">
+              <button id="btnRetry" class="btn yellow">🔁 ULANGI JAWABAN</button>
+              <button id="btnNext" class="btn green">➡ LANJUTKAN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="controls" class="controls">
+      <div class="dpad">
+        <button id="btnLeft" class="ctl" aria-label="Kiri">◀</button>
+        <button id="btnRight" class="ctl" aria-label="Kanan">▶</button>
+      </div>
+      <button id="btnJump" class="ctl jump" aria-label="Loncat">LONCAT ⬆</button>
+    </div>
+
+    <!-- Layar permainan berakhir / selesai -->
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-card">
+        <div id="ovIcon" class="ov-icon"></div>
+        <h2 id="ovTitle"></h2>
+        <p id="ovText"></p>
+        <div class="btn-col">
+          <button id="ovBtn1" class="btn big green"></button>
+          <button id="ovBtn2" class="btn big ghost"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
